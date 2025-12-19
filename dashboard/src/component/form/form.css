@@ -1,0 +1,112 @@
+.loginForm {
+    width: 100%;
+    max-width: 420px;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.loginForm h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+/* FORM */
+.loginForm form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.loginForm label {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.loginForm input {
+    margin-top: 6px;
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.loginForm input:focus {
+    outline: none;
+    border-color: #28a745;
+}
+
+/* BUTTON */
+.loginForm button {
+    margin-top: 10px;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+.loginForm button:hover {
+    background-color: #218838;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.message {
+  margin-top: 15px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.toggle {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.toggle span {
+  color: blue;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+select {
+  padding: 10px;
+  margin-top: 6px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+
+
+@media (max-width: 768px) {
+  .divideSection {
+    flex-direction: column;
+  }
+
+  .section1 {
+    padding: 40px;
+    text-align: center;
+  }
+
+  .section2 {
+    padding: 20px;
+  }
+}
