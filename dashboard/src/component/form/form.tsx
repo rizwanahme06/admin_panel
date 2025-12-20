@@ -46,86 +46,72 @@ const Form = () => {
 
   // ---------------- LOGIN ----------------
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-    setMessage("");
+  e.preventDefault();
+  setLoading(true);
+  setMessage("");
 
-    try {
-     
-    //   const res = await fetch("http://localhost:5000/connect", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({ name, email })
-    // });
-      const res = await authFetch("http://localhost:5000/connect", token, {
+  try {
+    const data = await authFetch(
+      "/connect",        // ✅ only endpoint
+      null,              // ✅ NO token during login
+      {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email })
-      });
-
-    const data = await res.json();
-    
-    if (data.status === "connect") {
-        // ✅ Store user in context
-        login({user: data.user, token: data.token });
-
-        // ✅ Redirect to dashboard
-        navigate("/dashboard", { replace: true });
-      } else {
-        setMessage("❌ Invalid user");
+        body: JSON.stringify({ name, email }),
       }
+    );
 
-    } catch (error) {
-      setMessage("❌ An error occurred");
+    if (data.status === "connect") {
+      login({ user: data.user, token: data.token });
+      navigate("/dashboard", { replace: true });
+    } else {
+      setMessage("❌ Invalid credentials");
     }
-
+  } catch (error) {
+    console.error(error);
+    setMessage("❌ Login failed");
+  } finally {
     setLoading(false);
-  };
+  }
+};
 
   // ---------------- SIGNUP ----------------
-  const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+ const handleSignup = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
 
-    const validationErrors = validateSignup();
-    if (Object.keys(validationErrors).length) {
-      setErrors(validationErrors);
-      return;
-    }
+  const validationErrors = validateSignup();
+  if (Object.keys(validationErrors).length) {
+    setErrors(validationErrors);
+    return;
+  }
 
-    setErrors({});
-    setLoading(true);
+  setErrors({});
+  setLoading(true);
 
-    try {
+  try {
+    const data = await authFetch(
+      "/users",
+      token, // signup usually requires admin token
+      {
+        method: "POST",
+        body: JSON.stringify({ name, email, role }),
+      }
+    );
 
-    //   const res = await fetch("http://localhost:5000/users", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({ name, email, role })
-    // });
+    setMessage(data.message || "✅ User created successfully");
+    setIsSignup(false);
 
-    const res = await authFetch("http://localhost:5000/users", token, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, role })
-    });
-
-    const data = await res.json();
-    setMessage(data.message || "User created successfully");
-      setIsSignup(false);
-
-      setName("");
-      setEmail("");
-      setConfirmEmail("");
-      setRole("");
-      
-    } catch (error) {
-
-      setMessage("❌ Signup failed");
-    }
-
-
+    setName("");
+    setEmail("");
+    setConfirmEmail("");
+    setRole("");
+  } catch (error) {
+    console.error(error);
+    setMessage("❌ Signup failed");
+  } finally {
     setLoading(false);
-  };
+  }
+};
+
 
   return (
     <div className="loginForm">

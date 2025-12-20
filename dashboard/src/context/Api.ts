@@ -21,14 +21,15 @@ export const authFetch = async (
   const res = await fetch(`${BASE_URL}${endpoint}`, {
     ...options,
     headers: {
-      "Content-Type": "application/json",
-      Authorization: token ? `Bearer ${token}` : "",
+       "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...(options.headers || {})
     }
   });
 
   if (!res.ok) {
-    throw new Error("API Error");
+    const error = await res.text();
+    throw new Error(error || "API Error");
   }
 
   return res.json();

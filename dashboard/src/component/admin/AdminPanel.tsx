@@ -34,15 +34,15 @@
 
 
 import { Routes, Route } from "react-router-dom";
-import AdminDashboard from "./admin/AdminDashboard";
-import AdminUsers from "./admin/AdminUsers";
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminUsers from "./pages/AdminUsers";
 
  const AdminPanel = () => {
 return (
 
   <Routes>
   <Route path="/" element={<AdminDashboard />} />
-  <Route path="users" element={<AdminUsers />} />
+  <Route path="/users" element={<AdminUsers />} />
 </Routes>
 )
 }

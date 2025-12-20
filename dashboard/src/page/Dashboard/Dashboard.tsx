@@ -1,9 +1,7 @@
-// import { useAuth } from "../../context/AuthContext";
-import Header from "../../component/Header";
-import AdminPanel from "../../component/AdminPanel";
-import UserPanel from "../../component/UserPanel";
-// import CommonPanel from "../../component/CommonPanel";
-import RoleGuard from "../../component/RoleGuard";
+import AdminPanel from "../../component/admin/AdminPanel";
+import Header from "../../component/layout/Header";
+import RoleGuard from "../../component/routing/RoleGuard";
+import UserPanel from "../../component/user/UserPanel";
 
 const Dashboard = () => {
   // const { user } = useAuth();

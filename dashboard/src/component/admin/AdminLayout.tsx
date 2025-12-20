@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import AdminSidebar from "./AdminSlidebar";
+import AdminSidebar from "./AdminSidebar";
 import AdminTopbar from "./AdminTopbar";
-import AdminDashboard from "./AdminDashboard";
-import  AdminUsers  from "./AdminUsers";
-import { AdminSettings } from "./AdminSettings";
-import { AdminRoles } from "./AdminRoles";
+import { AdminSettings } from "./pages/AdminSettings";
+import { AdminRoles } from "./pages/AdminRoles";
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminUsers from "./pages/AdminUsers";
 
 const AdminLayout = () => {
   return (
@@ -16,9 +16,9 @@ const AdminLayout = () => {
         <main style={{ padding: "20px" }}>
           <Routes>
             <Route path="/" element={<AdminDashboard />} />
-            <Route path="users" element={<AdminUsers />} />
-            <Route path="roles" element={<AdminRoles />} />
-            <Route path="settings" element={<AdminSettings />} />
+            <Route path="/users" element={<AdminUsers />} />
+            <Route path="/roles" element={<AdminRoles />} />
+            <Route path="/settings" element={<AdminSettings />} />
           </Routes>
         </main>
       </div>

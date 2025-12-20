@@ -28,9 +28,9 @@
 
 
 import { useEffect, useState } from "react";
-import { useAuth } from "../../context/AuthContext";
-import { authFetch } from "../../context/Api";
-import "./admin.css";
+import ".././admin.css";
+import { authFetch } from "../../../context/Api";
+import { useAuth } from "../../../context/AuthContext";
 
 type User = {
   id: number;
