@@ -1,4 +1,5 @@
 import { useAuth } from "../../context/AuthContext";
+import { Navigate } from "react-router-dom";
 
 type RoleGuardProps = {
   allowedRoles: string[];
@@ -8,10 +9,10 @@ type RoleGuardProps = {
 const RoleGuard = ({ allowedRoles, children }: RoleGuardProps) => {
   const { user } = useAuth();
 
-  if (!user) return null;
+  if (!user){ return <Navigate to="/" replace />;};
 
   if (!allowedRoles.includes(user.role)) {
-    return null; // or <Unauthorized />
+    return <Navigate to="/dashboard" replace />;
   }
 
   return <>{children}</>;
