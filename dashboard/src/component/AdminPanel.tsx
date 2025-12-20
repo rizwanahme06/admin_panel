@@ -33,24 +33,18 @@
 // export default AdminPanel;
 
 
-import AdminSidebar from "./admin/AdminSlidebar";
-import AdminTopbar from "./admin/AdminTopbar";
+import { Routes, Route } from "react-router-dom";
 import AdminDashboard from "./admin/AdminDashboard";
+import AdminUsers from "./admin/AdminUsers";
 
-const AdminPanel = () => {
-  return (
-    <div style={{ display: "flex", height: "100vh" }}>
-      <AdminSidebar />
+ const AdminPanel = () => {
+return (
 
-      <div style={{ flex: 1 }}>
-        <AdminTopbar />
+  <Routes>
+  <Route path="/" element={<AdminDashboard />} />
+  <Route path="users" element={<AdminUsers />} />
+</Routes>
+)
+}
 
-        <main style={{ padding: "20px" }}>
-          <AdminDashboard />
-        </main>
-      </div>
-    </div>
-  );
-};
-
-export default AdminPanel;
+export default AdminPanel
