@@ -1,0 +1,83 @@
+/* Layout */
+.user-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+/* Sidebar */
+.user-sidebar {
+  width: 220px;
+  background: #020617;
+  color: #e5e7eb;
+  padding: 20px;
+}
+
+.user-sidebar h3 {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.user-sidebar a {
+  display: block;
+  padding: 10px 12px;
+  color: #cbd5e1;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.user-sidebar a.active,
+.user-sidebar a:hover {
+  background: #1e293b;
+  color: #fff;
+}
+
+/* Main */
+.user-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Topbar */
+.user-topbar {
+  height: 60px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Content */
+.user-content {
+  padding: 24px;
+}
+
+/* Cards */
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.card-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+.logout-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.logout-btn:hover {
+  background: #dc2626;
+}

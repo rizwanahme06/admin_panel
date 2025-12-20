@@ -315,6 +315,31 @@ app.get("/users", authenticate, authorize(["admin"]), async (req, res) => {
   res.json(users);
 });
 
+/* ---------------- UPDATE USER ROLE (ADMIN ONLY) ---------------- */
+app.patch("/users/:id/role", authenticate, authorize(["admin"]), async (req, res) => {
+  const { role } = req.body;
+  const id = Number(req.params.id);
+
+  if (!role) {
+    return res.status(400).json({ error: "Role is required" });
+  }
+
+  const { workbook, sheet } = await loadExcel();
+  const row = sheet.getRow(id + 1);
+
+  if (!row.getCell(1).value) {
+    return res.status(404).json({ error: "User not found" });
+  }
+
+  row.getCell(4).value = role.toLowerCase();
+  row.commit();
+
+  await workbook.xlsx.writeFile(FILE);
+
+  res.json({ message: "Role updated successfully" });
+});
+
+
 /* ---------------- UPDATE USER (ADMIN ONLY) ---------------- */
 app.put("/users/:id", authenticate, authorize(["admin"]), async (req, res) => {
   const { name, email, role } = req.body;

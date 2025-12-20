@@ -35,7 +35,7 @@ const AdminTopbar = () => {
   return (
     <header style={{ padding: 16, borderBottom: "1px solid #ddd" }}>
       <span>Welcome, {user?.name}</span>
-      <button onClick={logout} style={{ float: "right" }}>
+      <button onClick={logout} style={{ float: "right" }} className="logout-btn">
         Logout
       </button>
     </header>

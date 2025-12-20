@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./form.css";
 import { useAuth } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { authFetch } from "../../context/Api";
 
 type formErrors = {
@@ -22,6 +22,10 @@ const Form = () => {
 
   const {login, token} = useAuth();
   const navigate = useNavigate();
+
+  if (token){
+    return <Navigate to="/dashboard" replace />;
+  }
 
   // ---------------- VALIDATION ----------------
   const validateSignup = () => {

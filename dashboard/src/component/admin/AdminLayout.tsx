@@ -1,26 +1,19 @@
-import { Routes, Route } from "react-router-dom";
+// dashboard/src/component/admin/AdminLayout.tsx
+import { Outlet } from "react-router-dom";
 import AdminSidebar from "./AdminSidebar";
 import AdminTopbar from "./AdminTopbar";
-import { AdminSettings } from "./pages/AdminSettings";
-import { AdminRoles } from "./pages/AdminRoles";
-import AdminDashboard from "./pages/AdminDashboard";
-import AdminUsers from "./pages/AdminUsers";
+import "./admin.css";
 
 const AdminLayout = () => {
   return (
-    <div style={{ display: "flex", height: "100vh" }}>
+    <div className="admin-root">
       <AdminSidebar />
 
-      <div style={{ flex: 1 }}>
+      <div className="admin-main">
         <AdminTopbar />
-        <main style={{ padding: "20px" }}>
-          <Routes>
-            <Route path="/" element={<AdminDashboard />} />
-            <Route path="/users" element={<AdminUsers />} />
-            <Route path="/roles" element={<AdminRoles />} />
-            <Route path="/settings" element={<AdminSettings />} />
-          </Routes>
-        </main>
+        <div className="admin-content">
+          <Outlet />
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,75 @@
+.admin-users {
+  padding: 20px;
+}
+
+.page-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #111827;
+}
+
+.table-wrapper {
+  background: #ffffff;
+  border-radius: 10px;
+  overflow-x: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users-table thead {
+  background: #111827;
+  color: #ffffff;
+}
+
+.users-table th,
+.users-table td {
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.users-table th {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.users-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: background 0.2s ease;
+}
+
+.users-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.users-table td {
+  font-size: 14px;
+  color: #374151;
+}
+
+/* Role Dropdown */
+.role-select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 13px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Role color hints */
+.role-select.admin {
+  background: #ecfdf5;
+  color: #065f46;
+  border-color: #10b981;
+}
+
+.role-select.user {
+  background: #eff6ff;
+  color: #1e40af;
+  border-color: #3b82f6;
+}

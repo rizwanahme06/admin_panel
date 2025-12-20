@@ -34,3 +34,24 @@ export const authFetch = async (
 
   return res.json();
 };
+
+export const updateUserRole = async (
+  id: number,
+  role: string,
+  token: string
+) => {
+  const res = await fetch(`${BASE_URL}/users/${id}/role`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ role }),
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to update role");
+  }
+
+  return res.json();
+};

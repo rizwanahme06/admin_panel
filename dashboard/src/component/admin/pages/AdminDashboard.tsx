@@ -43,45 +43,62 @@
 // export default AdminDashboard;
 
 
-import { useEffect, useState } from "react";
-import { authFetch } from "../../../context/Api";
-import { useAuth } from "../../../context/AuthContext";
+// import { useEffect, useState } from "react";
+// import { authFetch } from "../../../context/Api";
+// import { useAuth } from "../../../context/AuthContext";
 
-type User = {
-  id: number;
-  name: string;
-  role: string;
-};
+// type User = {
+//   id: number;
+//   name: string;
+//   role: string;
+// };
+
+// const AdminDashboard = () => {
+//   const { token } = useAuth();
+//   const [users, setUsers] = useState<User[]>([]);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState("");
+
+//   useEffect(() => {
+//     if (!token) return;
+
+//     authFetch("/users", token)
+//       .then(setUsers)
+//       .catch(() => setError("Access denied"))
+//       .finally(() => setLoading(false));
+//   }, [token]);
+
+//   if (loading) return <p>Loading users...</p>;
+//   if (error) return <p>{error}</p>;
+
+//   return (
+//     <div>
+//       <h2>Users</h2>
+//       <ul>
+//         {users.map(u => (
+//           <li key={u.id}>
+//             {u.name} — <strong>{u.role}</strong>
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// };
+
+// export default AdminDashboard;
 
 const AdminDashboard = () => {
-  const { token } = useAuth();
-  const [users, setUsers] = useState<User[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    if (!token) return;
-
-    authFetch("/users", token)
-      .then(setUsers)
-      .catch(() => setError("Access denied"))
-      .finally(() => setLoading(false));
-  }, [token]);
-
-  if (loading) return <p>Loading users...</p>;
-  if (error) return <p>{error}</p>;
-
   return (
-    <div>
-      <h2>Users</h2>
-      <ul>
-        {users.map(u => (
-          <li key={u.id}>
-            {u.name} — <strong>{u.role}</strong>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <h1>Admin Dashboard</h1>
+      <p>Overview & quick stats</p>
+
+      <div style={{ display: "flex", gap: 20 }}>
+        <div className="card">Total Users</div>
+        <div className="card">Admins</div>
+        <div className="card">Active Users</div>
+      </div>
+    </>
   );
 };
 

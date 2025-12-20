@@ -57,3 +57,59 @@
 .error {
   color: red;
 }
+
+.admin-root {
+  display: flex;
+  height: 100vh;
+  background: #f9fafb;
+}
+
+.admin-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-content {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.admin-sidebar {
+  width: 220px;
+  background: #111827;
+  color: #fff;
+  padding: 20px;
+}
+
+.admin-sidebar .logo {
+  margin-bottom: 30px;
+}
+
+.admin-sidebar nav a {
+  display: block;
+  color: #9ca3af;
+  text-decoration: none;
+  padding: 10px 0;
+}
+
+.admin-sidebar nav a.active {
+  color: #fff;
+  font-weight: bold;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1;
+}
+
+.logout-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}

@@ -2,6 +2,7 @@
  ##Developer Rizwan Ahmed##
 this repo is build to develop and self learn regaring the Admin Pamel
 
+/**Admin Section**/
 Admin Panel --> for Routing
     only routing
 Admin Layout --> layout
@@ -32,3 +33,10 @@ App.tsx
       │
       └── /user (RoleGuard: user)
             └── user dashboard
+
+/**User Section**/
+
+
+**issue
+when I login through user http://localhost:3000/dashboard/user/dashboard this link open
+and when i logout http://localhost:3000/dashboard with blank page and after this i have to do undo on the browser top left  button
